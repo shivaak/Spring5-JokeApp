@@ -3,6 +3,7 @@
  */
 package com.learning.jokeapp.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import guru.springframework.norris.chuck.ChuckNorrisQuotes;
@@ -16,10 +17,7 @@ public class JokeServiceImpl implements JokeService{
 
 	ChuckNorrisQuotes quotes;
 	
-	public JokeServiceImpl() {
-		quotes = new ChuckNorrisQuotes();
-	}
-
+	@Autowired
 	public JokeServiceImpl(ChuckNorrisQuotes quotes) {
 		super();
 		this.quotes = quotes;
