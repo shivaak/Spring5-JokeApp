@@ -16,8 +16,9 @@ import guru.springframework.norris.chuck.ChuckNorrisQuotes;
 @Configuration
 public class JokeAppConfig {
 	
-	@Bean
-	public ChuckNorrisQuotes initChuckNorrisQuotes() {
+	@Bean(name="chuckNorrisQuotesConfigBean")
+	public ChuckNorrisQuotes chuckNorrisQuotes() {
+		System.out.println("In Bean");
 		return new ChuckNorrisQuotes();
 	}
 

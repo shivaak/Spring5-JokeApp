@@ -4,6 +4,7 @@
 package com.learning.jokeapp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import guru.springframework.norris.chuck.ChuckNorrisQuotes;
@@ -15,19 +16,19 @@ import guru.springframework.norris.chuck.ChuckNorrisQuotes;
 @Service
 public class JokeServiceImpl implements JokeService{
 
-	ChuckNorrisQuotes quotes;
+	ChuckNorrisQuotes chuckNorrisQuotes;
 	
 	@Autowired
-	public JokeServiceImpl(ChuckNorrisQuotes quotes) {
+	public JokeServiceImpl(@Qualifier("chuckNorrisQuotesConfigBean")ChuckNorrisQuotes chuckNorrisQuotes) {
 		super();
-		this.quotes = quotes;
+		this.chuckNorrisQuotes = chuckNorrisQuotes;
 	}
 
 
 
 	@Override
 	public String getRandomJoke() {
-		return quotes.getRandomQuote();
+		return chuckNorrisQuotes.getRandomQuote();
 	}
 
 }
